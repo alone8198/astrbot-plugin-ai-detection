@@ -1,0 +1,14 @@
+# 强制 metadata.yaml 使用 LF 换行符
+metadata.yaml text eol=lf
+
+# 强制 requirements.txt 使用 LF 换行符
+requirements.txt text eol=lf
+
+# 强制 main.py 使用 LF 换行符
+main.py text eol=lf
+
+# 强制 README.md 使用 LF 换行符
+README.md text eol=lf
+
+# 强制 _conf_schema.json 使用 LF 换行符
+_conf_schema.json text eol=lf
