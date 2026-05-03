@@ -28,7 +28,7 @@ from astrbot.core.utils.io import get_astrbot_data_path
     "alone8198",
     "检测用户输入和AI输出中的违规内容，支持黑名单机制和消息撤回",
     "1.0.0",
-    "https://github.com/alone8198/astrbot-plugin-ai-detection",
+    "https://github.com/alone8198/astrbot_plugin_ai_detection",
 )
 class AIDetectionPlugin(Star):
     """AI内容检测插件 - 在LLM请求前和响应后两级拦截违规内容。"""
@@ -42,7 +42,7 @@ class AIDetectionPlugin(Star):
 
         # ---- 数据持久化 ----
         self.data_dir = (
-            get_astrbot_data_path()
+            Path(get_astrbot_data_path())
             / "plugin_data"
             / self.meta.name
             / "ai_detection"
