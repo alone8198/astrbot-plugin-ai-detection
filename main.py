@@ -25,9 +25,10 @@ from astrbot.core.utils.io import get_astrbot_data_path
 
 @register(
     "ai_detection_plugin",
-    "AI检测插件",
+    "alone8198",
     "检测用户输入和AI输出中的违规内容，支持黑名单机制和消息撤回",
     "1.0.0",
+    "https://github.com/alone8198/astrbot-plugin-ai-detection",
 )
 class AIDetectionPlugin(Star):
     """AI内容检测插件 - 在LLM请求前和响应后两级拦截违规内容。"""
@@ -125,7 +126,7 @@ class AIDetectionPlugin(Star):
             detection_prompt = (
                 "你是一个严格的内容安全检测助手。请判断以下消息是否包含违规内容"
                 "（色情、暴力、政治敏感、违法信息、人身攻击、广告垃圾等）。"
-                "如果违规，仅回复"违规"；如果正常，仅回复"正常"。\n\n"
+                "如果违规，仅回复【违规】；如果正常，仅回复【正常】。\n\n"
                 "消息：\n{content}"
             )
 
@@ -204,17 +205,19 @@ class AIDetectionPlugin(Star):
             return
 
         try:
+            if not hasattr(event, "message_obj") or not hasattr(event.message_obj, "message_id"):
+                logger.debug("[AI检测] 消息对象无 message_id，无法撤回")
+                return
+
             platform_name = event.get_platform_name()
             message_id = event.message_obj.message_id
 
             if platform_name == "aiocqhttp":
-                # QQ OneBot v11 / Napcat / Lagrange 协议
                 client = event.bot
                 await client.api.call_action("delete_msg", message_id=message_id)
                 logger.info(f"[AI检测] 已撤回消息 {message_id} (aiocqhttp)")
 
             elif platform_name == "qqofficial":
-                # QQ 官方 API
                 logger.info("[AI检测] QQ官方API消息撤回待实现")
 
             else:
@@ -321,9 +324,9 @@ class AIDetectionPlugin(Star):
         # 获取 AI 输出内容
         content = ""
         if hasattr(resp, "response"):
-            content = resp.response
+            content = str(resp.response)
         elif hasattr(resp, "content"):
-            content = resp.content
+            content = str(resp.content)
 
         if not content:
             return
@@ -341,7 +344,7 @@ class AIDetectionPlugin(Star):
 
             if hasattr(resp, "response"):
                 resp.response = replace_msg
-            elif hasattr(resp, "content"):
+            if hasattr(resp, "content"):
                 resp.content = replace_msg
 
             logger.warning(f"[AI检测] AI输出已被拦截替换: {content[:80]}...")
