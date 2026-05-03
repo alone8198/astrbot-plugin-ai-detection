@@ -141,7 +141,10 @@ class AIDetectionPlugin(Star):
                 provider_id = await self.context.get_current_chat_provider_id()
                 logger.info(f"[AI检测] 使用当前对话模型: {provider_id}")
 
-            response = await self.context.llm_generate(provider_id, prompt)
+            response = await self.context.llm_generate(
+                chat_provider_id=provider_id,
+                prompt=prompt
+            )
 
             # 统一处理各种响应格式
             result_text = ""
