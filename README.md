@@ -18,7 +18,7 @@
 
 ## 📌 简介
 
-一款面向 [AstrBot](https://github.com/Soulter/AstrBot) 的 AI 内容安全检测插件。
+一款面向 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 的 AI 内容安全检测插件。
 
 在用户消息进入 LLM 之前、以及 AI 回复发送给用户之前，对内容进行**双层检测**（关键词 + AI 智能检测），违规内容自动拦截，并支持黑名单与消息撤回。
 
