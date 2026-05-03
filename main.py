@@ -150,6 +150,15 @@ class AIDetectionPlugin(Star):
             result_text = ""
             if isinstance(response, str):
                 result_text = response
+            elif hasattr(response, "completion_text"):
+                # LLMResponse 对象
+                result_text = response.completion_text or ""
+                # 如果 completion_text 为空，尝试从 result_chain 提取
+                if not result_text and hasattr(response, "result_chain") and response.result_chain:
+                    # 从 MessageChain 中提取文本
+                    for segment in response.result_chain:
+                        if hasattr(segment, "text") and segment.text:
+                            result_text += segment.text
             elif hasattr(response, "response"):
                 result_text = response.response
             elif isinstance(response, dict):
