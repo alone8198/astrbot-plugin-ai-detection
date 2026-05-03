@@ -1,0 +1,62 @@
+{
+  "detection_provider": {
+    "description": "检测模型",
+    "type": "string",
+    "_special": "select_provider",
+    "hint": "选择用于检测违规内容的AI模型（必须是 AstrBot 已启用的模型）"
+  },
+  "detect_user_input": {
+    "description": "检测用户输入",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后，用户在发送消息给AI前会先检测是否包含违规内容"
+  },
+  "detect_ai_output": {
+    "description": "检测AI输出",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后，AI回复的消息会先检测是否包含违规内容"
+  },
+  "max_violations": {
+    "description": "最大违规次数",
+    "type": "int",
+    "default": 3,
+    "hint": "用户违规次数超过此值后将加入黑名单，禁止使用AI功能"
+  },
+  "enable_recall": {
+    "description": "启用消息撤回",
+    "type": "bool",
+    "default": false,
+    "hint": "开启后，如果检测到违规内容且机器人有管理权限（如QQ群管理员），将撤回用户的消息"
+  },
+  "keyword_filter": {
+    "description": "关键词过滤（逗号分隔）",
+    "type": "text",
+    "default": "",
+    "hint": "直接匹配的违规关键词列表，用逗号分隔。命中后直接拦截，无需调用AI检测，速度更快"
+  },
+  "block_message": {
+    "description": "拦截提示语",
+    "type": "string",
+    "default": "⚠️ 您的消息包含违规内容，已被拦截。违规次数: {count}/{max}",
+    "hint": "拦截违规消息时发送给用户的提示，支持 {count}（当前违规次数）和 {max}（最大次数）变量"
+  },
+  "replace_message": {
+    "description": "替换AI输出提示语",
+    "type": "string",
+    "default": "⚠️ 该回复因包含不良内容已被拦截替换",
+    "hint": "当AI输出被拦截时，用来替换原回复的消息"
+  },
+  "blacklist_message": {
+    "description": "黑名单提示语",
+    "type": "string",
+    "default": "⛔ 您已被加入黑名单，无法使用AI功能。请联系管理员处理。",
+    "hint": "黑名单用户尝试使用AI功能时收到的提示"
+  },
+  "detection_prompt": {
+    "description": "AI检测提示词",
+    "type": "text",
+    "default": "你是一个严格的内容安全检测助手。请判断以下消息是否包含违规内容（色情、暴力、政治敏感、违法信息、人身攻击、广告垃圾等）。如果违规，仅回复"违规"；如果正常，仅回复"正常"。\n\n消息：\n{content}",
+    "hint": "用于调用AI检测消息是否违规的提示词，必须包含 {content} 变量"
+  }
+}

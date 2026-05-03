@@ -1,0 +1,6 @@
+name: astrbot-plugin-ai-detection
+desc: 检测用户输入和AI输出中的违规内容，支持黑名单机制和消息撤回
+author: AI Detector
+version: 1.0.0
+display_name: AI检测插件
+astrbot_version: ">=4.5.7"
