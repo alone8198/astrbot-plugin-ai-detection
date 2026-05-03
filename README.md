@@ -8,9 +8,6 @@
     <a href="https://github.com/alone8198/astrbot-plugin-ai-detection/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License">
     </a>
-    <a href="https://github.com/alone8198/astrbot-plugin-ai-detection/releases">
-      <img src="https://img.shields.io/github/v/release/alone8198/astrbot-plugin-ai-detection?style=flat-square" alt="Release">
-    </a>
   </p>
 </div>
 
