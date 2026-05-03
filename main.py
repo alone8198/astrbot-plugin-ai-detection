@@ -41,10 +41,11 @@ class AIDetectionPlugin(Star):
         self._detecting = False
 
         # ---- 数据持久化 ----
+        # 注意：self.meta 在 __init__ 期间还不存在，使用硬编码的插件名称
         self.data_dir = (
             Path(get_astrbot_data_path())
             / "plugin_data"
-            / self.meta.name
+            / "astrbot_plugin_ai_detection"
             / "ai_detection"
         )
         self.data_dir.mkdir(parents=True, exist_ok=True)
