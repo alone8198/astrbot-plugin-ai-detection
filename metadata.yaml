@@ -1,6 +1,14 @@
-name: astrbot-plugin-ai-detection
+name: astrbot_plugin_ai_detection
 desc: 检测用户输入和AI输出中的违规内容，支持黑名单机制和消息撤回
-author: AI Detector
+author: alone8198
 version: 1.0.0
 display_name: AI检测插件
+short_desc: 智能检测违规内容，保护聊天环境
+support_platforms:
+  - aiocqhttp
+  - telegram
+  - qq_official
+  - wecom
+  - lark
+  - dingtalk
 astrbot_version: ">=4.5.7"
