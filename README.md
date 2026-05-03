@@ -1,11 +1,11 @@
-# astrbot-plugin-ai-detection
+# astrbot_plugin_ai_detection
 
 <div align="center">
   <p>
-    <a href="https://github.com/Soulter/AstrBot">
+    <a href="https://github.com/AstrBotDevs/AstrBot">
       <img src="https://img.shields.io/badge/AstrBot-插件-blue?style=flat-square" alt="AstrBot 插件">
     </a>
-    <a href="https://github.com/alone8198/astrbot-plugin-ai-detection/blob/main/LICENSE">
+    <a href="https://github.com/alone8198/astrbot_plugin_ai_detection/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License">
     </a>
   </p>
@@ -51,15 +51,15 @@
 cd /path/to/astrbot/data/plugins
 
 # 克隆本插件
-git clone https://github.com/alone8198/astrbot-plugin-ai-detection.git
+git clone https://github.com/alone8198/astrbot_plugin_ai_detection.git
 
 # 在 WebUI 中重载插件即可生效
 ```
 
 ### 方式三：手动下载
 
-1. 前往 [Releases](https://github.com/alone8198/astrbot-plugin-ai-detection/releases) 下载最新版压缩包
-2. 解压到 `data/plugins/astrbot-plugin-ai-detection/`
+1. 前往 [Releases](https://github.com/alone8198/astrbot_plugin_ai_detection/releases) 下载最新版压缩包
+2. 解压到 `data/plugins/astrbot_plugin_ai_detection/`
 3. 在 WebUI 中重载插件
 
 ---
@@ -183,7 +183,7 @@ data/plugin_data/ai_detection_plugin/ai_detection/
 <div align="center">
   <p>⭐ 如果这个插件对你有帮助，欢迎给个 Star！</p>
   <p>
-    <a href="https://github.com/Soulter/AstrBot">AstrBot 项目主页</a> ·
-    <a href="https://github.com/alone8198/astrbot-plugin-ai-detection/issues">提交 Issue</a>
+    <a href="https://github.com/AstrBotDevs/AstrBot">AstrBot 项目主页</a> ·
+    <a href="https://github.com/alone8198/astrbot_plugin_ai_detection/issues">提交 Issue</a>
   </p>
 </div>
